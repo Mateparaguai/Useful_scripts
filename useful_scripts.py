@@ -1,3 +1,4 @@
+#Select_all_obj_which_names_start_whith
 import bpy
 
 scene = bpy.context.scene

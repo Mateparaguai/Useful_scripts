@@ -24,3 +24,8 @@ for m in sel_objs:
     ob.name = "AR" + m.name
     ob.location = pos
 
+#all objects to current z position 
+import bpy
+sel_objs = bpy.context.selected_objects
+for i in sel_objs:
+    i.location.z = 0

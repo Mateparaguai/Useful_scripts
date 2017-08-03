@@ -8,3 +8,19 @@ for ob in scene.objects:
         ob.select = True
     else: 
         ob.select = False
+
+        
+#create new armature in position every selected obj
+import bpy
+
+sel_objs = bpy.context.selected_objects
+pos = (0.0, 0.0, 0.0)
+#arm = ob.data
+
+for m in sel_objs:
+    pos = m.location
+    bpy.ops.object.armature_add()
+    ob = bpy.context.scene.objects.active
+    ob.name = "AR" + m.name
+    ob.location = pos
+

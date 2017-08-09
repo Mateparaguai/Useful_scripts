@@ -29,3 +29,8 @@ import bpy
 sel_objs = bpy.context.selected_objects
 for i in sel_objs:
     i.location.z = 0
+
+#delete all materials in scene
+all_m = bpy.data.materials
+for i in all_m:
+    i.user_clear()    

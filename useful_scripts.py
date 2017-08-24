@@ -33,4 +33,23 @@ for i in sel_objs:
 #delete all materials in scene
 all_m = bpy.data.materials
 for i in all_m:
-    i.user_clear()    
+    i.user_clear()
+
+#rename_selected_bones
+import bpy
+
+mode = bpy.context.object.mode
+
+if mode == "POSE":
+    sel = bpy.context.selected_pose_bones
+else:
+    sel = bpy.context.selected_bones
+
+num = 0
+name = 'pose_brow_'
+R = '.R'
+L = '.L'
+for i in sel:
+    i.name = str(name) + str(num) + str(R)
+    num += 1
+    print(i.name) 

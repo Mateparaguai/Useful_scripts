@@ -53,3 +53,13 @@ for i in sel:
     i.name = str(name) + str(num) + str(R)
     num += 1
     print(i.name) 
+
+#del_all_constraints_from_selected_bones
+import bpy
+
+sel_bones = bpy.context.selected_pose_bones
+
+for i in sel_bones:
+    consList = i.constraints
+    for n in consList:
+        i.constraints.remove(n)

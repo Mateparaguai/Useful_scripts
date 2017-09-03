@@ -74,3 +74,13 @@ for mat in all_mat:
         mat.name = mat.name.replace('.002','')
     else:
         pass
+
+#mute all constraints in selected_bones
+import bpy
+
+sel_bones = bpy.context.selected_pose_bones
+
+for i in sel_bones:
+    consList = i.constraints
+    for n in consList:
+        n.mute = True

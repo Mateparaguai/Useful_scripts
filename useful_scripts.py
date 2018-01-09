@@ -21,6 +21,17 @@ all_m = bpy.data.materials
 for i in all_m:
     i.user_clear()
 
+#remane_some_text_in_all_materials
+import bpy
+import string
+all_mat = bpy.data.materials
+keep_wd = '.002'
+for mat in all_mat:
+    if keep_wd in mat.name:
+        mat.name = mat.name.replace('.002','')
+    else:
+        pass
+    
 #rename_selected_bones
 import bpy
 
@@ -40,23 +51,3 @@ for i in sel:
     num += 1
     print(i.name) 
 
-#remane_some_text_in_all_materials
-import bpy
-import string
-all_mat = bpy.data.materials
-keep_wd = '.002'
-for mat in all_mat:
-    if keep_wd in mat.name:
-        mat.name = mat.name.replace('.002','')
-    else:
-        pass
-
-#mute all constraints in selected_bones
-import bpy
-
-sel_bones = bpy.context.selected_pose_bones
-
-for i in sel_bones:
-    consList = i.constraints
-    for n in consList:
-        n.mute = True
